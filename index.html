@@ -3,10 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
     <title>docx-diff</title>
-    <style>.loading-modal{z-index:20;color:#1f2328;background:#ffffffd9;place-items:center;font-family:system-ui,sans-serif;display:grid;position:fixed;inset:0}.loading-modal__box{background:#fff;border-radius:8px;flex-direction:column;align-items:center;gap:.75rem;min-width:16rem;padding:1.5rem 2rem;display:flex;box-shadow:0 8px 24px #1f232833}.loading-modal__title{margin:0;font-size:1.125rem;font-weight:600}.loading-modal__detail{color:#57606a;min-height:1.25em;font-size:.875rem}.loading-modal__spinner{border:3px solid #d0d7de;border-top-color:#0969da;border-radius:50%;width:2rem;height:2rem;animation:.8s linear infinite loading-modal-spin}@keyframes loading-modal-spin{to{transform:rotate(360deg)}}</style>
-    <script type="module" crossorigin src="/assets/index-CSpP6UGP.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-BBZE7ZZE.css">
+    <script>
+      // The theme before the first paint (src/ui/theme.ts keeps it up to date): the reviewer's
+      // choice, else the browser's preference.
+      (function () {
+        var theme = null;
+        try {
+          theme = localStorage.getItem('docx-diff:theme');
+        } catch (e) {}
+        if (theme !== 'light' && theme !== 'dark') {
+          theme = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
+    <style>.loading-modal{z-index:20;color:#1f2328;background:#ffffffd9;place-items:center;font-family:system-ui,sans-serif;display:grid;position:fixed;inset:0}.loading-modal__box{background:#fff;border-radius:8px;flex-direction:column;align-items:center;gap:.75rem;min-width:16rem;padding:1.5rem 2rem;display:flex;box-shadow:0 8px 24px #1f232833}.loading-modal__title{margin:0;font-size:1.125rem;font-weight:600}.loading-modal__detail{color:#57606a;min-height:1.25em;font-size:.875rem}.loading-modal__spinner{border:3px solid #d0d7de;border-top-color:#0969da;border-radius:50%;width:2rem;height:2rem;animation:.8s linear infinite loading-modal-spin}:root[data-theme=dark]{--lightningcss-light: ;--lightningcss-dark:initial;color-scheme:dark;background:#0d1117}:root[data-theme=dark] .loading-modal{color:#e6edf3;background:#0d1117d9}:root[data-theme=dark] .loading-modal__box{background:#1c2128;box-shadow:0 8px 24px #01040999}:root[data-theme=dark] .loading-modal__detail{color:#8d96a0}:root[data-theme=dark] .loading-modal__spinner{border-color:#4493f8 #30363d #30363d}@keyframes loading-modal-spin{to{transform:rotate(360deg)}}</style>
+    <script type="module" crossorigin src="/assets/index-Di3VudeE.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-EKj2CjCc.css">
   </head>
   <body>
     <div id="root">
